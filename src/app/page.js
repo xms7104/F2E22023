@@ -8,13 +8,16 @@ import Header from './header';
 import TaiWanMap from './taiwanMap';
 import AreaOption from './area';
 import AreaDetailOption from './areaDetail';
+import Chart from './chart';
 
 export default function Home() {
-  const[title, setTitle] = useState('第15任 總統副總統大選');
-  const[cityOption, setCityOption] = useState([]);
-  const[city, setCity] = useState([]);
-  const[area, setArea] = useState([]);
-  const[areaDetail, setAreaDetail] = useState([]);
+  const [title, setTitle] = useState('第15任 總統副總統大選');
+  const [cityOption, setCityOption] = useState([]);
+  const [city, setCity] = useState([]);
+  const [area, setArea] = useState([]);
+  const [areaDetail, setAreaDetail] = useState([]);
+  const [voting, setVoting] = useState([{value:'14,300,940', name:'有效票數'}, {value:'163,631', name:'無效票數'}]);
+  const [party, setParty] = useState([{value:'608,590', name:'黨1'}, {value:'5,522,119', name:'黨2'}, {value:'8,170,231', name:'黨3'}]);
 
   const titleData = [
     {id:0, title: '第15任 總統副總統大選'},
@@ -60,10 +63,10 @@ export default function Home() {
         </div>
         <div className='flex justify-start items-center'>
           <div className='w-[150px] mr-2'>
-            <AreaOption city={city} area={area} setArea={setArea} />
+            <AreaOption city={city} area={area} setArea={setArea} setVoting={setVoting} setParty={setParty} />
           </div>
           <div className='w-[150px] mr-2'>
-            <AreaDetailOption city={city} area={area} areaDetail={areaDetail} setAreaDetail={setAreaDetail} />
+            <AreaDetailOption city={city} area={area} areaDetail={areaDetail} setAreaDetail={setAreaDetail} setVoting={setVoting} setParty={setParty} />
           </div>
         </div>
         <div className='flex justify-center items-center w-[80px] h-[38px] border-2 border-solid border-black rounded-md cursor-pointer px-2 py-2'>
@@ -73,7 +76,11 @@ export default function Home() {
           <p>清除</p>
         </div>
       </div>
-      <TaiWanMap />
+      <div>
+        <Chart voting={voting} party={party} />
+        <TaiWanMap />
+      </div>
+      
     </main>
   )
 }

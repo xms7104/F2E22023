@@ -4,7 +4,7 @@ import Image from 'next/image';
 import detailCity from './data/detailCity';
 import ReactECharts from 'echarts-for-react';
 
-function Chart() {
+function Chart({voting, party}) {
     const option = {
         
     };
