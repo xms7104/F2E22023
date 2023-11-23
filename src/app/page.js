@@ -9,6 +9,7 @@ import TaiWanMap from './taiwanMap';
 import AreaOption from './area';
 import AreaDetailOption from './areaDetail';
 import Chart from './chart';
+import Tip from './Tip';
 
 export default function Home() {
   const [title, setTitle] = useState('第15任 總統副總統大選');
@@ -16,9 +17,18 @@ export default function Home() {
   const [city, setCity] = useState([]);
   const [area, setArea] = useState([]);
   const [areaDetail, setAreaDetail] = useState([]);
-  const [voting, setVoting] = useState([{value:'14,300,940', name:'有效票數'}, {value:'163,631', name:'無效票數'}]);
-  const [party, setParty] = useState([{value:'608,590', name:'黨1'}, {value:'5,522,119', name:'黨2'}, {value:'8,170,231', name:'黨3'}]);
-
+  const [voting, setVoting] = useState([{value:14300940, name:'有效票數', itemStyle: { color: '#000000' }}, {value:163631, name:'無效票數', itemStyle: { color: '#cccccc' }}]);
+  const [votingInformation, setVotingInformation] = useState({
+    '投票率' : '74.9029',
+    '投票數' : '14,464,571',
+    '有效票數' : '14,300,940',
+    '無效票數' : '163,631'});
+  const [party, setParty] = useState([{value:608590, name:'親民黨', itemStyle: { color: '#dfa175' }}, {value:5522119, name:'中國國民黨', itemStyle: { color: '#8894d9' }}, {value:8170231, name:'民主進步黨', itemStyle: { color: '#84cb98' }}]);
+  const [partyInformation, setPartyInformation] = useState({
+    '親民黨' : {voting: '608,590', color: '#dfa175', cp: '宋楚瑜', cvp: '余湘'},
+    '中國國民黨' : {voting: '5,522,119', color: '#8894d9', cp: '韓國瑜', cvp: '張善政'},
+    '民主進步黨' : {voting: '8,170,231', color: '#84cb98', cp: '蔡英文', cvp: '賴清德'}, 
+    '有效票數' : '14,300,940'});
   const titleData = [
     {id:0, title: '第15任 總統副總統大選'},
     {id:1, title: '第10任 立法委員選舉'},
@@ -59,7 +69,7 @@ export default function Home() {
       </div>
       <div className='mx-4 flex justify-start items-center'>
         <div className='w-[150px] mr-2'>
-          <Select className='text-black' options={cityOption} onChange={(e) => {setCity(e)}} />
+          <Select className='text-black' placeholder="請選擇..." options={cityOption} onChange={(e) => {setCity(e)}} />
         </div>
         <div className='flex justify-start items-center'>
           <div className='w-[150px] mr-2'>
@@ -73,14 +83,14 @@ export default function Home() {
           <button>
             <FontAwesomeIcon icon={faRotateRight} />
           </button>
-          <p>清除</p>
+          <p className='mb-0'>清除</p>
         </div>
       </div>
-      <div>
-        <Chart voting={voting} party={party} />
+      <div className='flex justify-center items-start px-4 py-4'>
+        <Chart voting={voting} votingInformation={votingInformation} party={party} partyInformation={partyInformation} />
         <TaiWanMap />
+        <Tip />
       </div>
-      
     </main>
   )
 }

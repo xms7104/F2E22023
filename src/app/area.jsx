@@ -5,7 +5,7 @@ import cityOption from './data/cityOption';
 
 function AreaOption({ city, area, setArea, setVoting, setParty }) {
     const [areaOption, setAreaOption] = useState([]);
-    console.log(city.value, cityOption[city.value])
+
     useEffect(() => {
         if(city.length !== 0){
             let option = [];
@@ -17,7 +17,7 @@ function AreaOption({ city, area, setArea, setVoting, setParty }) {
       },[city]);
 
     return (
-        <Select className='text-black' options={areaOption} value={area} onChange={(e) => {setArea(e)}} />
+        <Select className='text-black' placeholder="請選擇..." options={areaOption} value={area} onChange={(e) => {setArea(e)}} />
     )
   }
   

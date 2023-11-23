@@ -16,7 +16,7 @@ function AreaDetailOption({ city, area, areaDetail ,setAreaDetail, setVoting, se
       },[city, area]);
 
     return (
-        <Select className='text-black' options={areaOption} value={areaDetail} onChange={(e) => {setAreaDetail(e)}} />
+        <Select className='text-black' placeholder="請選擇..." options={areaOption} value={areaDetail} onChange={(e) => {setAreaDetail(e)}} />
     )
   }
   
