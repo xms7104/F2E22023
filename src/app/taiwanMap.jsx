@@ -15,7 +15,7 @@ function TaiWanMap() {
         })
     }
     return (
-        <div className='w-[45%]'>
+        <div className='w-[50vw]'>
           <div className='relative h-screen'>
             {taiwan()}
           </div>

@@ -61,7 +61,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                                 <p 
                                 className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
                                  style={{backgroundColor: partyInformation[item]['color']}}>{index+1}</p>
-                                <div className='border-r-2 border-solid mr-2 pr-2 w-[30%]'
+                                <div className='border-r-2 border-solid mr-2 pr-2 w-[40%]'
                                 style={{borderColor: partyInformation[item]['color']}}>
                                     <p className='mb-2 font-semibold text-[18px]'>{item}</p>
                                     <p className='mb-2 text-sm'>
@@ -85,7 +85,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
     }
 
     return (
-        <div className='w-[32%]'>
+        <div className='w-[30%]'>
             <div>
                 <p>投票概況</p>
                 <div className='inline-flex justify-center items-center'>
