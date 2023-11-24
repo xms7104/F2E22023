@@ -57,7 +57,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                         const votingTotalNum = parseInt(partyInformation['有效票數'].replace(/,/g, ''), 10);
                         const votingProportion = ((votingNum / votingTotalNum) *100).toFixed(2);
                         return(
-                            <div key={item} className='xl:w-[27vw] lg:w-[27vw] md:w-[56vw] flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2'>
+                            <div key={item} className='xl:w-[27vw] lg:w-[27vw] md:w-[56vw] sm:w-[60vw] flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
                                 <p 
                                 className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
                                  style={{backgroundColor: partyInformation[item]['color']}}>{index+1}</p>
@@ -91,10 +91,10 @@ function Chart({voting, party, votingInformation, partyInformation}) {
               <Accordion.Header>投票概況</Accordion.Header>
               <Accordion.Body>
                 <div className='grid justify-center items-center'>
-                    <div className='w-full flex justify-center items-center'>
-                        <div className='inline-flex justify-center items-center w-[60%]'>
-                            <div className='w-[150px]'>
-                                <ReactECharts option={votingChart} style={{height:'150px'}} />
+                    <div className='w-full flex justify-start items-center md:h-[120px] sm:h-[120px]'>
+                        <div className='inline-flex justify-start items-center w-[40%] md:h-[120px] sm:h-[120px]'>
+                            <div className='w-[120px]'>
+                                <ReactECharts option={votingChart} />
                             </div>
                             <div>
                                 <p>
@@ -115,9 +115,9 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                             </p>
                         </div>
                     </div>
-                    <div className='w-full flex justify-center items-center'>
-                        <div className='w-[150px]'>   
-                            <ReactECharts option={partyChart} style={{height:'150px'}} />
+                    <div className='w-full flex justify-center items-center md:h-[250px] sm:h-[250px]'>
+                        <div className='w-[120px]'>   
+                            <ReactECharts option={partyChart} />
                         </div>
                         <div>
                             {partyLayout()}
@@ -138,7 +138,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                     <div className='xl:w-[30vw] lg:w-[30vw] md:w-[80vw] xl:grid lg:grid lg:justify-start lg:items-center md:w-[50vw] md:flex md:justify-start md:items-center'>
                         <div className='inline-flex justify-center lg:items-center md:items-center'>
                             <div className='w-[150px]'>
-                                <ReactECharts option={votingChart} style={{height:'150px'}} />
+                                <ReactECharts option={votingChart} />
                             </div>
                             <div>
                                 <p>
@@ -161,7 +161,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                     </div>
                     <div className='xl:w-[30vw] xl:grid lg:w-[30vw] lg:grid md:w-[60vw] md:flex md:justify-center md:items-start'>
                         <div className='w-[150px]'>   
-                            <ReactECharts option={partyChart} style={{height:'150px'}} />
+                            <ReactECharts option={partyChart} />
                         </div>
                         <div>
                             {partyLayout()}
@@ -178,7 +178,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
         <div className='xl:block lg:block md:hidden sm:hidden'>
             {pcLayout()}
         </div>
-        <div className='xl:hidden lg:hidden md:block sm:block sm:w-[92%] sm:my-0 sm:mx-auto sm:mb-4'>
+        <div className='xl:hidden lg:hidden md:block sm:block md:w-[92%] sm:w-[90vw] sm:my-0 sm:mx-auto sm:mb-4'>
             {mobileLayout()}
         </div>
         </>

@@ -17,7 +17,7 @@ function TaiWanMap() {
     }
 
     function taiwanIpad(){
-      return taiwanMap['ipad'].map((item, index) => {
+      return taiwanMap['mobile'].map((item, index) => {
         return(
           <button key={item.id} className='absolute'
           style={{top:item.top, left: item.left}}>
@@ -25,16 +25,30 @@ function TaiWanMap() {
           </button>
         )
       })
-  }
+    }
+
+    function taiwanMobile(){
+      return taiwanMap['mobile'].map((item, index) => {
+        return(
+          <button key={item.id} className='absolute'
+          style={{top:item.top, left: item.left}}>
+            <Image alt={item.name} src={item.uri} width={item.size} height={40} />
+          </button>
+        )
+      })
+    }
 
     return (
-      <div className='flex justify-around items-start xl:w-[70%] lg:w-[70%] md:w-screen'>
-        <div className='xl:w-[70%] lg:w-[70%] md:w-[56%]'>
+      <div className='md:flex sm:block justify-around items-start xl:w-[70%] lg:w-[70%] md:w-screen sm:w-full'>
+        <div className='xl:w-[70%] lg:w-[70%] md:w-[56%] sm:w-screen'>
           <div className='xl:block xl:relative xl:h-screen lg:hidde md:hidden sm:hidden'>
             {taiwanPC()}
           </div>
-          <div className='xl:hidden lg:block lg:relative lg:h-screen md:block md:relative md:h-screen sm:block sm:relative sm:h-screen'>
+          <div className='xl:hidden lg:block lg:relative lg:h-screen md:block md:relative md:h-screen sm:hidden'>
             {taiwanIpad()}
+          </div>
+          <div className='xl:hidden lg:hidden md:hidden sm:block sm:relative sm:h-[75vh]'>
+            {taiwanMobile()}
           </div>
         </div>
         <Tip />

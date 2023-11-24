@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       screens: {
         'sm': '275px', // 小屏幕
-        'md': '575px', // 中等屏幕
+        'md': '595px', // 中等屏幕
         'lg': '820px', // 大屏幕
         'xl': '1080px', // 超大屏幕
       },

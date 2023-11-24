@@ -68,25 +68,27 @@ export default function Home() {
         {titleLayout()}
       </div>
       <div className='mx-4 flex justify-start items-center'>
-        <div className='w-[150px] mr-2'>
-          <Select className='text-black' placeholder="請選擇..." options={cityOption} onChange={(e) => {setCity(e)}} />
-        </div>
-        <div className='flex justify-start items-center'>
-          <div className='w-[150px] mr-2'>
-            <AreaOption city={city} area={area} setArea={setArea} setVoting={setVoting} setParty={setParty} />
+        <div className='lg:flex justify-start items-center md:grid md:w-full sm:grid sm:w-full'>
+          <div className='lg:w-[150px] lg:mb-0 mr-2 md:w-full md:mb-4 md:w-[80vw] sm:mb-4 sm:w-[80vw]'>
+            <Select className='text-black' placeholder="請選擇..." options={cityOption} onChange={(e) => {setCity(e)}} />
           </div>
-          <div className='w-[150px] mr-2'>
-            <AreaDetailOption city={city} area={area} areaDetail={areaDetail} setAreaDetail={setAreaDetail} setVoting={setVoting} setParty={setParty} />
+          <div className='flex justify-start items-center'>
+            <div className='lg:w-[150px] mr-2 md:w-[39.25vw] sm:w-[39.25vw]'>
+              <AreaOption city={city} area={area} setArea={setArea} setVoting={setVoting} setParty={setParty} />
+            </div>
+            <div className='lg:w-[150px] md:mr-2 md:w-[39.25vw] sm:w-[39.25vw]'>
+              <AreaDetailOption city={city} area={area} areaDetail={areaDetail} setAreaDetail={setAreaDetail} setVoting={setVoting} setParty={setParty} />
+            </div>
           </div>
         </div>
-        <div className='flex justify-center items-center w-[80px] h-[38px] border-2 border-solid border-black rounded-md cursor-pointer px-2 py-2'>
+        <div className='flex justify-center items-center lg:w-[80px] lg:h-[38px] border-2 border-solid border-black rounded-md cursor-pointer px-2 py-2 md:w-[30px] md:h-[90px] sm:w-[30px] sm:h-[90px]'>
           <button>
             <FontAwesomeIcon icon={faRotateRight} />
           </button>
-          <p className='mb-0'>清除</p>
+          <p className='lg:block mb-0 md:hidden sm:hidden'>清除</p>
         </div>
       </div>
-      <div className='lg:flex justify-center items-start px-4 py-4 md:grid'>
+      <div className='lg:flex justify-center items-start px-4 py-4 md:grid sm:block'>
         <Chart voting={voting} votingInformation={votingInformation} party={party} partyInformation={partyInformation} />
         <TaiWanMap />
       </div>
