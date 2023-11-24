@@ -1,16 +1,33 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import taiwanMap from './data/taiwanMapData';
 import Tip from './Tip';
 
 function TaiWanMap() {
+  const [hovered, setHovered] = useState(null);
+  const [selected, setSelected] = useState(null);
+
     function taiwanPC(){
       return taiwanMap['pc'].map((item, index) => {
+        let imgSrc = item.uri;
+        if(hovered === item.name){
+          imgSrc = item.hoverUri;
+        }else if(hovered === null && selected === item.name){
+          imgSrc = item.focusUri;
+        }else if(hovered === null && selected === null){
+          imgSrc = item.uri;
+        }
+        
         return(
-          <button key={item.id} className='absolute'
-          style={{top:item.top, left: item.left}}>
-            <Image alt={item.name} src={item.uri} width={item.size} height={40} />
+          <button 
+          key={item.id} 
+          className='absolute'
+          style={{top:item.top, left: item.left}}
+          onMouseEnter={() => {setHovered(item.name);}}
+          onMouseLeave={() => {setHovered(null);}}
+          onClick={() => {setSelected(item.name);}}>
+            <Image alt={item.name} src={imgSrc} width={item.size} height={40} />
           </button>
         )
       })
