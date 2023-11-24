@@ -88,7 +88,7 @@ export default function Home() {
           <p className='lg:block mb-0 md:hidden sm:hidden'>清除</p>
         </div>
       </div>
-      <div className='lg:flex justify-center items-start px-4 py-4 md:grid sm:block'>
+      <div className='lg:flex justify-center items-start px-4 py-4 md:block sm:block'>
         <Chart voting={voting} votingInformation={votingInformation} party={party} partyInformation={partyInformation} />
         <TaiWanMap />
       </div>
