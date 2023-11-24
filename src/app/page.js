@@ -86,10 +86,9 @@ export default function Home() {
           <p className='mb-0'>清除</p>
         </div>
       </div>
-      <div className='flex justify-center items-start px-4 py-4'>
+      <div className='lg:flex justify-center items-start px-4 py-4 md:grid'>
         <Chart voting={voting} votingInformation={votingInformation} party={party} partyInformation={partyInformation} />
         <TaiWanMap />
-        <Tip />
       </div>
     </main>
   )
