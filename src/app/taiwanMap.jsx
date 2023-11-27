@@ -23,10 +23,13 @@ function TaiWanMap({
       if(selected.length === 1){
         select = data[selected[0]];
         setCity({label: selected[0], value: selected[0]});
+        setArea([]);
+        setAreaDetail([]);
       }else if(selected.length === 2){
         select = data[selected[0]][selected[1]];
         setCity({label: selected[0], value: selected[0]});
         setArea({label: selected[1], value: selected[1]});
+        setAreaDetail([]);
       }else if(selected.length === 3){
         select = data[selected[0]][selected[1]][selected[2]];
         setCity({label: selected[0], value: selected[0]});

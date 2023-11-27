@@ -7,11 +7,13 @@ function AreaDetailOption({ city, area, areaDetail ,setAreaDetail, setVoting, se
     const [areaOption, setAreaOption] = useState([]);
     useEffect(() => {
         if(city.length !== 0 && area.length !== 0){
-            let option = [];
-            for(let i=0; i < detailCityOption[city.value][area.value].length; i++){
-                option.push({label: detailCityOption[city.value][area.value][i], value: detailCityOption[city.value][area.value][i]});
+            if(city.value !== undefined && area.value !== undefined){
+                let option = [];
+                for(let i=0; i < detailCityOption[city.value][area.value].length; i++){
+                    option.push({label: detailCityOption[city.value][area.value][i], value: detailCityOption[city.value][area.value][i]});
+                }
+                setAreaOption(option);
             }
-            setAreaOption(option);
         }
       },[city, area]);
 

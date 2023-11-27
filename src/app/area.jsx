@@ -9,10 +9,12 @@ function AreaOption({ city, area, setArea, setVoting, setParty }) {
     useEffect(() => {
         if(city.length !== 0){
             let option = [];
-            for(let i=0; i < cityOption[city.value].length; i++){
-                option.push({label: cityOption[city.value][i], value: cityOption[city.value][i]});
+            if(city.value !== undefined){
+                for(let i=0; i < cityOption[city.value].length; i++){
+                    option.push({label: cityOption[city.value][i], value: cityOption[city.value][i]});
+                }
+                setAreaOption(option);
             }
-            setAreaOption(option);
         }
       },[city]);
 
