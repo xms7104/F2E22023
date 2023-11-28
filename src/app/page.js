@@ -14,6 +14,7 @@ import detailCity from './data/detailCity';
 
 export default function Home() {
   const [title, setTitle] = useState('第15任 總統副總統大選');
+  const [data, setdata] = useState([]);
   const [cityOption, setCityOption] = useState([]);
   const [city, setCity] = useState([]);
   const [area, setArea] = useState([]);
@@ -41,12 +42,58 @@ export default function Home() {
   useEffect(() => {
     setArea([]);
     setAreaDetail([]);
-
-  },[city])
+    if(city.length !== 0){
+      setdata(detailCity[city.value]);
+    }
+  },[city]);
 
   useEffect(() => {
     setAreaDetail([]);
+    if(city.length !==0 && area.length !== 0){
+      setdata(detailCity[city.value][area.value]);
+    }
   },[area])
+
+  useEffect(() => {
+    if(city.length !==0 && area.length !== 0 && areaDetail.length !== 0){
+      setdata(detailCity[city.value][area.value][areaDetail.value]);
+    }
+  },[areaDetail])
+
+  useEffect(() => {
+    if(data.length !== 0 && data !== undefined && data !== null){
+      const votingChartY = parseInt(data['有效票數'].replace(",", ""));
+      const votingChartN = parseInt(data['無效票數'].replace(",", ""));
+      const partyChart1 = parseInt(data['親民黨'].replace(",", ""));
+      const partyChart2 = parseInt(data['中國國民黨'].replace(",", ""));
+      const partyChart3 = parseInt(data['民主進步黨'].replace(",", ""));
+
+      setVoting([
+        {value: votingChartY, name:'有效票數', itemStyle: { color: '#000000' }}, 
+        {value: votingChartN, name:'無效票數', itemStyle: { color: '#cccccc' }}
+      ]);
+      
+      setVotingInformation({
+        '投票率' : data['投票率'],
+        '投票數' : data['投票數'],
+        '有效票數' : data['有效票數'],
+        '無效票數' : data['無效票數']
+      });
+
+      setParty([
+        {value:partyChart1, name:'親民黨', itemStyle: { color: '#dfa175' }}, 
+        {value:partyChart2, name:'中國國民黨', itemStyle: { color: '#8894d9' }}, 
+        {value:partyChart3, name:'民主進步黨', itemStyle: { color: '#84cb98' }}
+      ])
+
+      setPartyInformation({
+        '親民黨' : {voting: data['親民黨'], color: '#dfa175', cp: '宋楚瑜', cvp: '余湘'},
+        '中國國民黨' : {voting: data['中國國民黨'], color: '#8894d9', cp: '韓國瑜', cvp: '張善政'},
+        '民主進步黨' : {voting: data['民主進步黨'], color: '#84cb98', cp: '蔡英文', cvp: '賴清德'}, 
+        '有效票數' : data['有效票數']
+      });
+    }
+  },[city, area, areaDetail])
 
   function titleLayout(){
     return titleData.map((item, index) => {

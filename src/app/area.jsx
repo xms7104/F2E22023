@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import cityOption from './data/cityOption';
 
-function AreaOption({ city, area, setArea, setVoting, setParty }) {
+function AreaOption({ city, area, setArea }) {
     const [areaOption, setAreaOption] = useState([]);
 
     useEffect(() => {

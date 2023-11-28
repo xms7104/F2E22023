@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import detailCityOption from './data/detailCityOption';
 
-function AreaDetailOption({ city, area, areaDetail ,setAreaDetail, setVoting, setParty }) {
+function AreaDetailOption({ city, area, areaDetail ,setAreaDetail }) {
     const [areaOption, setAreaOption] = useState([]);
     useEffect(() => {
+        console.log(city, area)
         if(city.length !== 0 && area.length !== 0){
             if(city.value !== undefined && area.value !== undefined){
                 let option = [];
