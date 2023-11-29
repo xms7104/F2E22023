@@ -75,16 +75,16 @@ function Tip({city, area, areaDetail, partyInformation}) {
                         const votingProportion = ((votingNum / votingTotalNum) *100).toFixed(2);
                         return(
                             <div key={item}
-                            className='xl:w-[27vw] lg:w-[27vw] md:w-[56vw] sm:w-[60vw] flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
+                            className='w-auto flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
                                 <p 
                                     className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
                                     style={{backgroundColor: partyInformation[item]['color']}}>
                                         {index+1}
                                     </p>
-                                    <div className='border-r-2 border-solid mr-2 pr-2 w-[40%]'
+                                    <div className='border-r-2 border-solid mr-2 pr-2 w-[130px]'
                                     style={{borderColor: partyInformation[item]['color']}}>
                                         <p className='mb-2 font-semibold text-[18px]'>{item}</p>
-                                        <p className='mb-2 text-sm'>
+                                        <p className='mb-2 text-sm w-max'>
                                             {partyInformation[item]['cp']} ｜ {partyInformation[item]['cvp']}
                                         </p>
                                     </div>
@@ -105,7 +105,6 @@ function Tip({city, area, areaDetail, partyInformation}) {
     }
 
     function pcLayout(){
-        console.log(city)
         return(
             <div className='xl:block xl:w-[250px] lg:block lg:w-[180px] md:hidden'>
                 {city.length === 0 ? (

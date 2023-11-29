@@ -55,14 +55,14 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                         const votingTotalNum = parseInt(partyInformation['有效票數'].replace(/,/g, ''), 10);
                         const votingProportion = ((votingNum / votingTotalNum) *100).toFixed(2);
                         return(
-                            <div key={item} className='xl:w-[27vw] lg:w-[27vw] md:w-[56vw] sm:w-[60vw] flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
+                            <div key={item} className='w-auto flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
                                 <p 
                                 className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
                                  style={{backgroundColor: partyInformation[item]['color']}}>{index+1}</p>
-                                <div className='border-r-2 border-solid mr-2 pr-2 w-[40%]'
+                                <div className='border-r-2 border-solid mr-2 pr-2 w-max'
                                 style={{borderColor: partyInformation[item]['color']}}>
                                     <p className='mb-2 font-semibold text-[18px]'>{item}</p>
-                                    <p className='mb-2 text-sm'>
+                                    <p className='mb-2 text-sm w-[130px]'>
                                         {partyInformation[item]['cp']} ｜ {partyInformation[item]['cvp']}
                                     </p>
                                 </div>
@@ -133,7 +133,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
             <div className='grid items-center lg:justify-start md:justify-center md:mb-2'>
                 <p className='mb-0'>投票概況</p>
                 <div>
-                    <div className='xl:w-[23vw] lg:w-[30vw] md:w-[80vw] xl:grid lg:grid lg:justify-start lg:items-center md:w-[50vw] md:flex md:justify-start md:items-center'>
+                    <div className='xl:w-[23vw] lg:w-[23vw] md:w-[80vw] xl:grid lg:grid lg:justify-start lg:items-center md:w-[50vw] md:flex md:justify-start md:items-center'>
                         <div className='inline-flex justify-center lg:items-center md:items-center'>
                             <div className='w-[150px]'>
                                 <ReactECharts option={votingChart} />
@@ -157,7 +157,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                             </p>
                         </div>
                     </div>
-                    <div className='xl:w-[30vw] xl:grid lg:w-[30vw] lg:grid md:w-[60vw] md:flex md:justify-center md:items-start'>
+                    <div className='xl:w-[23vw] xl:grid lg:w-[23vw] lg:grid md:w-[60vw] md:flex md:justify-start md:items-start'>
                         <div className='w-[150px]'>   
                             <ReactECharts option={partyChart} />
                         </div>
