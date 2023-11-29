@@ -108,7 +108,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
         console.log(city)
         return(
             <div className='xl:block xl:w-[250px] lg:block lg:w-[180px] md:hidden'>
-                {city.value === 0 ? (
+                {city.length === 0 ? (
                     <>
                         <Card
                         className="mb-2 bg-[#CCCCCC] text-black w-[90%]"
