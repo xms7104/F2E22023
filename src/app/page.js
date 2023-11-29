@@ -61,6 +61,7 @@ export default function Home() {
   },[areaDetail])
 
   useEffect(() => {
+    console.log(data)
     if(data.length !== 0 && data !== undefined && data !== null){
       const votingChartY = parseInt(data['有效票數'].replace(",", ""));
       const votingChartN = parseInt(data['無效票數'].replace(",", ""));
@@ -159,7 +160,11 @@ export default function Home() {
         setVoting={setVoting}
         setVotingInformation={setVotingInformation} 
         setParty={setParty}
-        setPartyInformation={setPartyInformation} />
+        setPartyInformation={setPartyInformation}
+        partyInformation={partyInformation}
+        city={city}
+        area={area}
+        areaDetail={areaDetail} />
       </div>
     </main>
   )

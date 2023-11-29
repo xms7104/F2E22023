@@ -1,7 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import detailCity from './data/detailCity';
 import ReactECharts from 'echarts-for-react';
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -84,7 +82,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
         }
     }
 
-    function mobileLayout() {
+    function mobileLayout(){
         return (
             <Accordion>
             <Accordion.Item eventKey="0">
@@ -171,7 +169,6 @@ function Chart({voting, party, votingInformation, partyInformation}) {
             </div>
         )
     }
-    
 
     return (
         <>
