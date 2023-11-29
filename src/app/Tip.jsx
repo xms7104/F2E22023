@@ -31,21 +31,21 @@ function Tip({city, area, areaDetail, partyInformation}) {
     },[city, area, areaDetail]);
 
     const swiperStyle = {
-        width: '350px !important',
+        width: 'auto !important',
     };
 
     function tipCardSwiper(){
         return tipTitleArr.map((item, index) => {
             return(
-                <SwiperSlide key={item+'_'+index} className='w-[350px] !w-important'>
-                    <div className='w-[40vw] mr-4'>
-                        <div>
+                <SwiperSlide key={item+'_'+index} className='w-auto !w-important' style={swiperStyle}>
+                    <Card className='w-[40vw] mr-4'>
+                        <Card.Body>
                             <p>{item}</p>
                             <div>
                                 {tipCardContainer()}
                             </div>
-                        </div>
-                    </div>
+                        </Card.Body>
+                    </Card>
                 </SwiperSlide>
             )
         })
@@ -105,6 +105,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
     }
 
     function pcLayout(){
+        console.log(city)
         return(
             <div className='xl:block xl:w-[250px] lg:block lg:w-[180px] md:hidden'>
                 {city.value === 0 ? (
@@ -146,7 +147,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
     function mobileLayout(){
         return(
             <Swiper
-                slidesPerView={4}
+                slidesPerView={'auto'}
                 spaceBetween={30}
                 pagination={{
                 clickable: true,

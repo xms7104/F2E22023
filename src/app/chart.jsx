@@ -133,7 +133,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
             <div className='grid items-center lg:justify-start md:justify-center md:mb-2'>
                 <p className='mb-0'>投票概況</p>
                 <div>
-                    <div className='xl:w-[30vw] lg:w-[30vw] md:w-[80vw] xl:grid lg:grid lg:justify-start lg:items-center md:w-[50vw] md:flex md:justify-start md:items-center'>
+                    <div className='xl:w-[23vw] lg:w-[30vw] md:w-[80vw] xl:grid lg:grid lg:justify-start lg:items-center md:w-[50vw] md:flex md:justify-start md:items-center'>
                         <div className='inline-flex justify-center lg:items-center md:items-center'>
                             <div className='w-[150px]'>
                                 <ReactECharts option={votingChart} />

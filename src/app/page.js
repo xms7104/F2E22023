@@ -121,14 +121,14 @@ export default function Home() {
       </div>
       <div className='mx-4 flex justify-start items-center'>
         <div className='lg:flex justify-start items-center md:grid md:w-full sm:grid sm:w-full'>
-          <div className='lg:w-[150px] lg:mb-0 mr-2 md:w-full md:mb-4 md:w-[80vw] sm:mb-4 sm:w-[80vw]'>
+          <div className='lg:w-[150px] lg:mb-0 mr-2 md:w-full md:mb-4 md:w-[80vw] sm:mb-4 sm:w-[80vw] relative z-30'>
             <Select className='text-black' placeholder="請選擇..." value={city} options={cityOption} onChange={(e) => {setCity(e)}} />
           </div>
           <div className='flex justify-start items-center'>
-            <div className='lg:w-[150px] mr-2 md:w-[39.25vw] sm:w-[39.25vw]'>
+            <div className='lg:w-[150px] mr-2 md:w-[39.25vw] sm:w-[39.25vw] relative z-20'>
               <AreaOption city={city} area={area} setArea={setArea} setVoting={setVoting} setParty={setParty} />
             </div>
-            <div className='lg:w-[150px] md:mr-2 md:w-[39.25vw] sm:w-[39.25vw]'>
+            <div className='lg:w-[150px] md:mr-2 md:w-[39.25vw] sm:w-[39.25vw] relative z-20'>
               <AreaDetailOption city={city} area={area} areaDetail={areaDetail} setAreaDetail={setAreaDetail} setVoting={setVoting} setParty={setParty} />
             </div>
           </div>
