@@ -89,11 +89,11 @@ function Tip({city, area, areaDetail, partyInformation}) {
                                         </p>
                                     </div>
                                     <div>
-                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1'>
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1 xl:text-sm lg:text-xs md:text-xs sm:text-xs'>
                                             {votingProportion} %
                                         </p>
-                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1'>
-                                            {partyInformation[item]['voting']}
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1 xl:text-sm lg:text-xs md:text-xs sm:text-xs'>
+                                            {partyInformation[item]['voting']} 票
                                         </p>
                                     </div>
                             </div>
@@ -106,7 +106,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
 
     function pcLayout(){
         return(
-            <div className='xl:block xl:w-auto lg:grid lg:w-max md:hidden'>
+            <div className='xl:block xl:w-auto lg:grid lg:w-auto md:hidden'>
                 {city.length === 0 ? (
                     <>
                         <Card
@@ -196,7 +196,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
     }
 
     return (
-        <div className='xl:w-[30%]'>
+        <div className='xl:w-[30%] lg:w-[61%]'>
             <div className='xl:block lg:block md:hidden sm:hidden w-auto'>
                 {pcLayout()}
             </div>

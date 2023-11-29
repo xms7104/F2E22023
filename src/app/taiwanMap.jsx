@@ -127,7 +127,7 @@ function TaiWanMap({
 
     return (
       <div className='lg:flex md:block sm:block justify-around items-start xl:w-[70%] lg:w-full md:w-full sm:w-full'>
-        <div className='xl:w-[90%] lg:w-[90%] md:w-[50%] sm:w-auto md:mx-auto md:my-0 sm:w-full md:h-[45vh] sm:h-[55vh]'>
+        <div className='xl:w-[90%] lg:w-[90%] md:w-[50%] sm:w-auto md:mx-auto md:my-0 sm:w-full md:h-[70vh] sm:h-[70vh]'>
           <div className='xl:block xl:relative xl:h-screen lg:hidden md:hidden sm:hidden'>
             {taiwanPC()}
           </div>
