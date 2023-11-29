@@ -160,11 +160,7 @@ export default function Home() {
         setVoting={setVoting}
         setVotingInformation={setVotingInformation} 
         setParty={setParty}
-        setPartyInformation={setPartyInformation}
-        partyInformation={partyInformation}
-        city={city}
-        area={area}
-        areaDetail={areaDetail} />
+        setPartyInformation={setPartyInformation} />
         <Tip
         city={city}
         area={area}

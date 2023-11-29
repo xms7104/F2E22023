@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import taiwanMap from './data/taiwanMapData';
-import Tip from './Tip';
 import data from './data/detailCity'
 
 function TaiWanMap({
@@ -14,11 +13,7 @@ function TaiWanMap({
   setVoting, 
   setVotingInformation, 
   setParty, 
-  setPartyInformation,
-  partyInformation,
-  city, 
-  area, 
-  areaDetail}) {
+  setPartyInformation}) {
   const [hovered, setHovered] = useState(null);
 
   useEffect(() =>{
@@ -104,7 +99,11 @@ function TaiWanMap({
       return taiwanMap['ipad'].map((item, index) => {
         return(
           <button key={item.id} className='absolute'
-          style={{top:item.top, left: item.left, zIndex:item.zIndex}}>
+          style={{top:item.top, left: item.left, zIndex:item.zIndex}}
+          onClick={() => {
+            let result = item.name.match(/(.*?[縣市鎮鄉里])/g).map(match => match.trim());
+            setSelected(result);
+          }}>
             <Image alt={item.name} src={item.uri} width={item.size} height={40} />
           </button>
         )
@@ -115,7 +114,11 @@ function TaiWanMap({
       return taiwanMap['mobile'].map((item, index) => {
         return(
           <button key={item.id} className='absolute'
-          style={{top:item.top, left: item.left, zIndex:item.zIndex}}>
+          style={{top:item.top, left: item.left, zIndex:item.zIndex}}
+          onClick={() => {
+            let result = item.name.match(/(.*?[縣市鎮鄉里])/g).map(match => match.trim());
+            setSelected(result);
+          }}>
             <Image alt={item.name} src={item.uri} width={item.size} height={40} />
           </button>
         )
