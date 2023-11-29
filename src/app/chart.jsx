@@ -59,7 +59,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                                 <p 
                                 className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2 xl:text-base lg:text-base md:text-base sm:text-sm'
                                  style={{backgroundColor: partyInformation[item]['color']}}>{index+1}</p>
-                                <div className='border-r-2 border-solid mr-2 pr-2 xl:w-max lg:w-max md:w-max sm:w-[125px]'
+                                <div className='border-r-2 border-solid mr-2 pr-2 xl:w-max lg:w-max md:w-max sm:w-[113px] sm:pr-0'
                                 style={{borderColor: partyInformation[item]['color']}}>
                                     <p className='mb-2 font-semibold xl:text-[18px] lg:text-base md:text-base sm:text-sm'>{item}</p>
                                     <p className='mb-2 xl:text-sm lg:text-sm md:text-sm sm:text-xs w-[130px]'>
@@ -90,7 +90,7 @@ function Chart({voting, party, votingInformation, partyInformation}) {
               <Accordion.Body>
                 <div className='grid justify-center items-center'>
                     <div className='w-full flex justify-start items-center md:h-[120px] sm:h-[120px]'>
-                        <div className='inline-flex justify-start items-center w-[40%] md:h-[120px] sm:h-[120px] sm:w-[50%]'>
+                        <div className='inline-flex justify-start items-center w-[40%] md:h-[120px] sm:h-[120px] sm:w-[53%]'>
                             <div className='w-[120px]'>
                                 <ReactECharts option={votingChart} />
                             </div>
