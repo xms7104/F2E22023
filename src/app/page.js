@@ -6,6 +6,7 @@ import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
 import Header from './header';
 import TaiWanMap from './taiwanMap';
+import Tip from './Tip';
 import AreaOption from './area';
 import AreaDetailOption from './areaDetail';
 import Chart from './chart';
@@ -26,7 +27,7 @@ export default function Home() {
   const [selected, setSelected] = useState(null);
   const titleData = [
     {id:0, title: '第15任 總統副總統大選'},
-    {id:1, title: '第10任 立法委員選舉'},
+    // {id:1, title: '第10任 立法委員選舉'},
   ];
 
   const cityData = ['基隆市', '臺北市', '新北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '彰化縣', '南投縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '臺東縣', '花蓮縣', '金門縣', '連江縣', '澎湖縣'];
@@ -164,6 +165,11 @@ export default function Home() {
         city={city}
         area={area}
         areaDetail={areaDetail} />
+        <Tip
+        city={city}
+        area={area}
+        areaDetail={areaDetail}
+        partyInformation={partyInformation} />
       </div>
     </main>
   )

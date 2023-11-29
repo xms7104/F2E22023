@@ -54,8 +54,8 @@ function Tip({city, area, areaDetail, partyInformation}) {
     function tipCard(){
         return tipTitleArr.map((item, index) => {
             return(
-                <Card key={item+'_'+index} style={{ width: '18rem' }}>
-                    <Card.Body>
+                <Card key={item+'_'+index} className='mb-4'>
+                    <Card.Body className=' lg:px-2 lg:py-2'>
                         <Card.Title>{item}</Card.Title>
                         {tipCardContainer()}
                     </Card.Body>
@@ -77,22 +77,22 @@ function Tip({city, area, areaDetail, partyInformation}) {
                             <div key={item}
                             className='w-auto flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
                                 <p 
-                                    className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
+                                    className='rounded-full h-[25px] w-[25px] xl:text-sm lg:text-xs md:text-xs sm:text-sx text-white flex justify-center items-center mr-2'
                                     style={{backgroundColor: partyInformation[item]['color']}}>
                                         {index+1}
                                     </p>
-                                    <div className='border-r-2 border-solid mr-2 pr-2 w-[130px]'
+                                    <div className='border-r-2 border-solid mr-2 pr-2 xl:w-[130px] lg:w-[110px] md:w-[130px] sm:w-[130px]'
                                     style={{borderColor: partyInformation[item]['color']}}>
-                                        <p className='mb-2 font-semibold text-[18px]'>{item}</p>
-                                        <p className='mb-2 text-sm w-max'>
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1 font-semibold xl:text-[18px] lg:text-base md:text-[14px] sm:md:text-[14px]'>{item}</p>
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1 xl:text-sm lg:text-xs md:text-xs sm:text-xs w-max'>
                                             {partyInformation[item]['cp']} ｜ {partyInformation[item]['cvp']}
                                         </p>
                                     </div>
                                     <div>
-                                        <p className='mb-2'>
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1'>
                                             {votingProportion} %
                                         </p>
-                                        <p className='mb-2'>
+                                        <p className='xl:mb-2 lg:mb-1 md:mb-1 sm:mb-1'>
                                             {partyInformation[item]['voting']}
                                         </p>
                                     </div>
@@ -106,11 +106,11 @@ function Tip({city, area, areaDetail, partyInformation}) {
 
     function pcLayout(){
         return(
-            <div className='xl:block xl:w-[250px] lg:block lg:w-[180px] md:hidden'>
+            <div className='xl:block xl:w-auto lg:grid lg:w-max md:hidden'>
                 {city.length === 0 ? (
                     <>
                         <Card
-                        className="mb-2 bg-[#CCCCCC] text-black w-[90%]"
+                        className="mb-2 bg-[#CCCCCC] text-black xl:w-auto lg:w-auto"
                         >
                         <Card.Body>
                             <div className='flex justify-start items-center'>
@@ -124,7 +124,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
                         </Card.Body>
                         </Card>
                         <Card
-                        className="mb-2 bg-[#CCCCCC] text-black w-[90%]"
+                        className="mb-2 bg-[#CCCCCC] text-black w-full"
                         >
                         <Card.Body>
                             <div className='flex justify-start items-center'>
@@ -196,8 +196,8 @@ function Tip({city, area, areaDetail, partyInformation}) {
     }
 
     return (
-        <div>
-            <div className='xl:block lg:block md:hidden sm:hidden'>
+        <div className='xl:w-[30%]'>
+            <div className='xl:block lg:block md:hidden sm:hidden w-auto'>
                 {pcLayout()}
             </div>
             <div className='xl:hidden lg:hidden md:block sm:block'>
