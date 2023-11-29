@@ -57,20 +57,20 @@ function Chart({voting, party, votingInformation, partyInformation}) {
                         return(
                             <div key={item} className='w-auto flex justify-start lg:items-baseline lg:mb-4 md:items-center md:mb-2 sm:mb-2'>
                                 <p 
-                                className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2'
+                                className='rounded-full h-[25px] w-[25px] text-sm text-white flex justify-center items-center mr-2 xl:text-base lg:text-base md:text-base sm:text-sm'
                                  style={{backgroundColor: partyInformation[item]['color']}}>{index+1}</p>
-                                <div className='border-r-2 border-solid mr-2 pr-2 w-max'
+                                <div className='border-r-2 border-solid mr-2 pr-2 xl:w-max lg:w-max md:w-max sm:w-[125px]'
                                 style={{borderColor: partyInformation[item]['color']}}>
-                                    <p className='mb-2 font-semibold text-[18px]'>{item}</p>
-                                    <p className='mb-2 text-sm w-[130px]'>
+                                    <p className='mb-2 font-semibold xl:text-[18px] lg:text-base md:text-base sm:text-sm'>{item}</p>
+                                    <p className='mb-2 xl:text-sm lg:text-sm md:text-sm sm:text-xs w-[130px]'>
                                         {partyInformation[item]['cp']} ｜ {partyInformation[item]['cvp']}
                                     </p>
                                 </div>
                                 <div>
-                                    <p className='mb-2'>
+                                    <p className='mb-2 xl:text-base lg:text-base md:text-base sm:text-sm'>
                                         {votingProportion} %
                                     </p>
-                                    <p className='mb-2'>
+                                    <p className='mb-2 xl:text-base lg:text-base md:text-base sm:text-sm'>
                                         {partyInformation[item]['voting']}
                                     </p>
                                 </div>
@@ -90,25 +90,25 @@ function Chart({voting, party, votingInformation, partyInformation}) {
               <Accordion.Body>
                 <div className='grid justify-center items-center'>
                     <div className='w-full flex justify-start items-center md:h-[120px] sm:h-[120px]'>
-                        <div className='inline-flex justify-start items-center w-[40%] md:h-[120px] sm:h-[120px]'>
+                        <div className='inline-flex justify-start items-center w-[40%] md:h-[120px] sm:h-[120px] sm:w-[50%]'>
                             <div className='w-[120px]'>
                                 <ReactECharts option={votingChart} />
                             </div>
                             <div>
-                                <p>
+                                <p className='xl:text-base lg:text-base md:text-base sm:text-sm'>
                                     {parseFloat(votingInformation['投票率']).toFixed(2)} %
                                 </p>
-                                <p>投票率</p>
+                                <p className='xl:text-base lg:text-base md:text-base sm:text-sm'>投票率</p>
                             </div>
                         </div>
                         <div className='ml-4 mb-4'>
-                            <p className='mb-2'>
+                            <p className='mb-2 xl:text-base lg:text-base md:text-base sm:text-sm'>
                                 投票數 {" "} {votingInformation['投票數']} 票
                             </p>
-                            <p className='mb-2'>
+                            <p className='mb-2 xl:text-base lg:text-base md:text-base sm:text-sm'>
                                 無效票數 {" "} {votingInformation['無效票數']} 票
                             </p>
-                            <p className='mb-2'>
+                            <p className='mb-2 xl:text-base lg:text-base md:text-base sm:text-sm'>
                                 有效票數 {" "} {votingInformation['有效票數']} 票
                             </p>
                         </div>

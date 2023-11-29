@@ -38,7 +38,7 @@ function Tip({city, area, areaDetail, partyInformation}) {
         return tipTitleArr.map((item, index) => {
             return(
                 <SwiperSlide key={item+'_'+index} className='w-auto !w-important' style={swiperStyle}>
-                    <Card className='w-[40vw] mr-4'>
+                    <Card className='xl:w-[40vw] lg:w-[40vw] md:w-[40vw] sm:w-[65vw] mr-4'>
                         <Card.Body>
                             <p>{item}</p>
                             <div>
